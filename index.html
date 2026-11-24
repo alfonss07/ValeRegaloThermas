@@ -86,6 +86,25 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:va
 .sign p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,3.4vw,36px);color:var(--deep);margin:0}
 .sign small{display:block;margin-top:10px;color:var(--soft);font-size:14px}
 
+
+.book-fit{width:100%;overflow:hidden}
+.book-stage{width:1124px;height:794px;perspective:2600px;position:relative;transform-origin:0 0}
+.book-card{position:absolute;left:281px;top:0;width:562px;height:794px;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.4,.1,.2,1)}
+.book-part,.book-leaf{position:absolute;inset:0;transform-style:preserve-3d}
+.book-leaf{transform-origin:0 50%;transition:transform 1.1s cubic-bezier(.4,.1,.2,1);transform:translateZ(1px)}
+.book-clip{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;box-shadow:0 24px 50px rgba(0,0,0,.25);background:#F7F3EC}
+.book-back{transform:rotateY(180deg)}
+.book-sheet{position:absolute;top:0;width:1123px;height:794px;font-size:16px;line-height:normal;color:#1E2A32}
+.book-sheet img{max-width:none}
+.book-stage.open .book-card{transform:translateX(281px)}.book-stage.open .book-leaf{transform:translateZ(1px) rotateY(-180deg)}
+.book-stage.flip .book-card{transform:rotateY(180deg)}
+.book-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:26px}
+.book-btn{font:16px 'Jost',system-ui,sans-serif;min-height:46px;padding:0 20px;border-radius:2px;border:1px solid var(--rule);background:var(--paper);color:var(--deep);cursor:pointer}
+.book-btn:hover{border-color:var(--gold)}
+.book-btn[aria-pressed=true]{background:var(--deep);color:var(--bg);border-color:var(--deep)}
+.book-btn:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.book-card,.book-leaf{transition:none}}
+
 @media(max-width:760px){
 .cover,.place-grid,.zone.big{grid-template-columns:minmax(0,1fr)}
 .cover figure{order:-1}
@@ -126,6 +145,318 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:va
 </dl>
 <p class="wish">Feliz 18 cumpleaños</p>
 </div></div>
+</section>
+
+<section class="band book-band" aria-labelledby="tarjeta">
+<div class="wrap">
+<div class="zones-head"><div><p class="label">Vuestra tarjeta</p><h2 id="tarjeta">Así es la tarjeta</h2></div>
+<p id="bookHint">Pulsa «Abrir la tarjeta» para verla por dentro.</p></div>
+<div class="book-fit" id="bookFit"><div class="book-stage" id="bookStage"><div class="book-card">
+<div class="book-part"><div class="book-clip"><div class="book-sheet" style="left:-561px"><div style="width: 1123px; height: 794px; position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F7F3EC; font-family: 'Jost', system-ui, sans-serif; color: #1E2A32; overflow: hidden">
+
+<div style="position: absolute; left: 561px; top: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+<div style="position: absolute; left: 561px; bottom: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+
+<section style="box-sizing: border-box; padding: 48px 56px 48px 48px; display: flex">
+<div style="flex-grow: 1; border: 1px solid #B08D57; padding: 6px; border-radius: 2px; display: flex">
+<div style="flex-grow: 1; border: 1px solid #B08D57; background: #FFFDF8; box-sizing: border-box; padding: 40px 36px 36px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.34em; text-transform: uppercase; color: #7A5C30">Vale regalo</span>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #3A4750">Thermas de Griñón</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<span style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 46px; line-height: 1.02; color: #0F2A3D; text-wrap: balance">Circuito termal de 3 horas</span>
+</div>
+<img src="hero.jpg" loading="lazy" alt="Vista del circuito termal de Thermas de Griñón" style="width: 100%; height: 150px; object-fit: cover; object-position: 60% 45%; display: block; border-radius: 2px">
+<div style="width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; font-size: 17px; text-align: left">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5C30">Para</span>
+<span>Roberta y Anastasia</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5C30">De parte de</span>
+<span>Alfonso</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(122, 92, 48)">Fecha</span><span style="color: rgb(118, 118, 118)"><span style="color: rgb(30, 42, 50)">A definir...</span></span></div>
+<div style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(122, 92, 48)">Reservas</span><span>609 581 544</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: #0F2A3D">Feliz 18 cumpleaños</span>
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 52px 56px 44px 64px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A5C30">Circuito termal · 3 horas</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; line-height: 1.05; color: #0F2A3D">Lo que os espera</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="piscina.jpg" loading="lazy" alt="Gran piscina central" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Gran piscina central</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="lago.jpg" loading="lazy" alt="Lago de cristal" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Lago de cristal</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="hielo.jpg" loading="lazy" alt="Cascada de hielo" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Cascada de hielo</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="sauna.jpg" loading="lazy" alt="Sauna finlandesa" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Sauna finlandesa</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="zen.jpg" loading="lazy" alt="Jacuzzis Zen" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Jacuzzis Zen</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="flotarium.jpg" loading="lazy" alt="Flotarium" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Flotarium</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="jacuzzi.jpg" loading="lazy" alt="Jacuzzis Trébol" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Jacuzzis Trébol</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="romanas.jpg" loading="lazy" alt="Thermas Romanas" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Thermas Romanas</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="turco.jpg" loading="lazy" alt="Baño turco" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Baño turco</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="duchas.jpg" loading="lazy" alt="Circuito de duchas" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Circuito de duchas</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="pediluvio.jpg" loading="lazy" alt="Pediluvio" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Pediluvio</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="mediterraneo.jpg" loading="lazy" alt="Mar Mediterráneo" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Mediterráneo</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="cantabrico.jpg" loading="lazy" alt="Mar Cantábrico" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Cantábrico</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="indico.jpg" loading="lazy" alt="Mar Índico" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Índico</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="muerto.jpg" loading="lazy" alt="Mar Muerto" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Muerto</figcaption>
+</figure>
+</div>
+</section>
+
+</div></div></div><div class="book-clip book-back"><div class="book-sheet" style="left:0"><div style="width: 1123px; height: 794px; position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F7F3EC; font-family: 'Jost', system-ui, sans-serif; color: #1E2A32; overflow: hidden">
+
+<div style="position: absolute; left: 561px; top: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+<div style="position: absolute; left: 561px; bottom: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+
+<section style="box-sizing: border-box; padding: 64px 64px 56px 56px; display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A5C30">Balneario urbano · Madrid</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; line-height: 1.1; color: #0F2A3D">Thermas de Griñón</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4750">Uno de los balnearios más grandes de España: 3.200 m² de espacios ozonizados con piscinas, jacuzzis, saunas y baños de inspiración romana.</p>
+<img src="exterior.jpg" loading="lazy" alt="Fachada del Balneario Thermas de Griñón" style="width: 100%; height: 210px; object-fit: cover; object-position: 50% 50%; display: block; border-radius: 2px">
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 4px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5C30">Dónde</span>
+<span style="font-size: 15px; line-height: 1.5">Ctra. de Torrejón de la Calzada a Griñón, km 3,2 · 28971 Griñón (Madrid)</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5C30">Web</span>
+<span style="font-size: 15px">thermasdegrinon.com</span>
+</div>
+</div>
+</div>
+<div style="flex-grow: 1"></div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: #0F2A3D">Alfonso Sobrino - 15/12/2026</span>
+</div>
+</section>
+
+<section style="position: relative; display: flex; flex-direction: column">
+<img src="hero.jpg" loading="lazy" alt="Vista del circuito termal de Thermas de Griñón" style="width: 100%; height: 440px; object-fit: cover; object-position: 50% 50%; display: block">
+<div style="position: absolute; top: 392px; right: 34px; width: 119px; height: 119px; border-radius: 50%; background: #0F2A3D; border: 2px solid #B08D57; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-weight: 500; font-size: 44px; line-height: 1; color: rgb(247, 243, 236)">18</span><span style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgb(230, 211, 174); margin-top: 2px">CUMPLEAÑOS</span></div>
+<div style="box-sizing: border-box; padding: 44px 56px 48px 64px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: #7A5C30">Vale regalo</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 50px; line-height: 1.02; color: #0F2A3D; text-wrap: balance">Un día en Thermas de Griñón</p>
+<div style="width: 56px; height: 1px; background: #B08D57; margin: 6px 0"></div>
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; line-height: 1.15; color: #1E2A32">Roberta &amp; Anastasia</p>
+
+</div>
+</section>
+
+</div></div></div></div>
+<div class="book-leaf"><div class="book-clip"><div class="book-sheet" style="left:-561px"><div style="width: 1123px; height: 794px; position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F7F3EC; font-family: 'Jost', system-ui, sans-serif; color: #1E2A32; overflow: hidden">
+
+<div style="position: absolute; left: 561px; top: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+<div style="position: absolute; left: 561px; bottom: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+
+<section style="box-sizing: border-box; padding: 64px 64px 56px 56px; display: flex; flex-direction: column; gap: 22px">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A5C30">Balneario urbano · Madrid</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; line-height: 1.1; color: #0F2A3D">Thermas de Griñón</p>
+<p style="margin: 0; font-size: 16px; line-height: 1.6; color: #3A4750">Uno de los balnearios más grandes de España: 3.200 m² de espacios ozonizados con piscinas, jacuzzis, saunas y baños de inspiración romana.</p>
+<img src="exterior.jpg" loading="lazy" alt="Fachada del Balneario Thermas de Griñón" style="width: 100%; height: 210px; object-fit: cover; object-position: 50% 50%; display: block; border-radius: 2px">
+<div style="display: flex; flex-direction: column; gap: 14px; margin-top: 4px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5C30">Dónde</span>
+<span style="font-size: 15px; line-height: 1.5">Ctra. de Torrejón de la Calzada a Griñón, km 3,2 · 28971 Griñón (Madrid)</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5C30">Web</span>
+<span style="font-size: 15px">thermasdegrinon.com</span>
+</div>
+</div>
+</div>
+<div style="flex-grow: 1"></div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 20px; color: #0F2A3D">Alfonso Sobrino - 15/12/2026</span>
+</div>
+</section>
+
+<section style="position: relative; display: flex; flex-direction: column">
+<img src="hero.jpg" loading="lazy" alt="Vista del circuito termal de Thermas de Griñón" style="width: 100%; height: 440px; object-fit: cover; object-position: 50% 50%; display: block">
+<div style="position: absolute; top: 392px; right: 34px; width: 119px; height: 119px; border-radius: 50%; background: #0F2A3D; border: 2px solid #B08D57; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center"><span style="font-family: &quot;Cormorant Garamond&quot;, serif; font-weight: 500; font-size: 44px; line-height: 1; color: rgb(247, 243, 236)">18</span><span style="font-size: 9px; letter-spacing: 0.25em; text-transform: uppercase; color: rgb(230, 211, 174); margin-top: 2px">CUMPLEAÑOS</span></div>
+<div style="box-sizing: border-box; padding: 44px 56px 48px 64px; display: flex; flex-direction: column; gap: 14px; flex-grow: 1">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.32em; text-transform: uppercase; color: #7A5C30">Vale regalo</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 50px; line-height: 1.02; color: #0F2A3D; text-wrap: balance">Un día en Thermas de Griñón</p>
+<div style="width: 56px; height: 1px; background: #B08D57; margin: 6px 0"></div>
+<p style="margin: 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 30px; line-height: 1.15; color: #1E2A32">Roberta &amp; Anastasia</p>
+
+</div>
+</section>
+
+</div></div></div><div class="book-clip book-back"><div class="book-sheet" style="left:0"><div style="width: 1123px; height: 794px; position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #F7F3EC; font-family: 'Jost', system-ui, sans-serif; color: #1E2A32; overflow: hidden">
+
+<div style="position: absolute; left: 561px; top: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+<div style="position: absolute; left: 561px; bottom: 0; width: 1px; height: 14px; background: #C9BFAF"></div>
+
+<section style="box-sizing: border-box; padding: 48px 56px 48px 48px; display: flex">
+<div style="flex-grow: 1; border: 1px solid #B08D57; padding: 6px; border-radius: 2px; display: flex">
+<div style="flex-grow: 1; border: 1px solid #B08D57; background: #FFFDF8; box-sizing: border-box; padding: 40px 36px 36px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.34em; text-transform: uppercase; color: #7A5C30">Vale regalo</span>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #3A4750">Thermas de Griñón</span>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 10px">
+<span style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 46px; line-height: 1.02; color: #0F2A3D; text-wrap: balance">Circuito termal de 3 horas</span>
+</div>
+<img src="hero.jpg" loading="lazy" alt="Vista del circuito termal de Thermas de Griñón" style="width: 100%; height: 150px; object-fit: cover; object-position: 60% 45%; display: block; border-radius: 2px">
+<div style="width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; font-size: 17px; text-align: left">
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5C30">Para</span>
+<span>Roberta y Anastasia</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px">
+<span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5C30">De parte de</span>
+<span>Alfonso</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(122, 92, 48)">Fecha</span><span style="color: rgb(118, 118, 118)"><span style="color: rgb(30, 42, 50)">A definir...</span></span></div>
+<div style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: rgb(122, 92, 48)">Reservas</span><span>609 581 544</span></div>
+</div>
+<div style="display: flex; align-items: center; gap: 14px">
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+<span style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; color: #0F2A3D">Feliz 18 cumpleaños</span>
+<div style="width: 32px; height: 1px; background: #B08D57"></div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing: border-box; padding: 52px 56px 44px 64px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<p style="margin: 0; font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: #7A5C30">Circuito termal · 3 horas</p>
+<p role="heading" aria-level="3" style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 40px; line-height: 1.05; color: #0F2A3D">Lo que os espera</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 10px">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="piscina.jpg" loading="lazy" alt="Gran piscina central" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Gran piscina central</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="lago.jpg" loading="lazy" alt="Lago de cristal" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Lago de cristal</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="hielo.jpg" loading="lazy" alt="Cascada de hielo" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Cascada de hielo</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="sauna.jpg" loading="lazy" alt="Sauna finlandesa" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Sauna finlandesa</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="zen.jpg" loading="lazy" alt="Jacuzzis Zen" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Jacuzzis Zen</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="flotarium.jpg" loading="lazy" alt="Flotarium" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Flotarium</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="jacuzzi.jpg" loading="lazy" alt="Jacuzzis Trébol" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Jacuzzis Trébol</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="romanas.jpg" loading="lazy" alt="Thermas Romanas" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Thermas Romanas</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="turco.jpg" loading="lazy" alt="Baño turco" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Baño turco</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="duchas.jpg" loading="lazy" alt="Circuito de duchas" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Circuito de duchas</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="pediluvio.jpg" loading="lazy" alt="Pediluvio" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Pediluvio</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="mediterraneo.jpg" loading="lazy" alt="Mar Mediterráneo" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Mediterráneo</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="cantabrico.jpg" loading="lazy" alt="Mar Cantábrico" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Cantábrico</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="indico.jpg" loading="lazy" alt="Mar Índico" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Índico</figcaption>
+</figure>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 5px">
+<img src="muerto.jpg" loading="lazy" alt="Mar Muerto" style="width: 100%; height: 80px; object-fit: cover; display: block; border-radius: 2px">
+<figcaption style="font-size: 12px; line-height: 1.2; color: #3A4750">Mar Muerto</figcaption>
+</figure>
+</div>
+</section>
+
+</div></div></div></div>
+</div></div></div>
+<div class="book-btns" role="group" aria-label="Ver la tarjeta">
+<button type="button" class="book-btn" data-v="closed" aria-pressed="true">Portada</button>
+<button type="button" class="book-btn" data-v="open" aria-pressed="false">Abrir la tarjeta</button>
+<button type="button" class="book-btn" data-v="flip" aria-pressed="false">Contraportada</button>
+</div>
+</div>
 </section>
 
 <section class="band" aria-labelledby="lugar">
@@ -196,6 +527,16 @@ const zones=[
 ];
 const card=(img,t,d,cls)=>`<figure class="zone${cls||''}"><div class="ph"><img src="${img}.jpg" alt="${t}" loading="lazy"></div><figcaption><h3>${t}</h3><p>${d}</p></figcaption></figure>`;
 document.getElementById('zones').innerHTML=card(big.img,big.t,big.d,' big')+zones.map(z=>card(z[0],z[1],z[2])).join('');
+}
+</script>
+<script>
+{
+const st=document.getElementById('bookStage'),fit=document.getElementById('bookFit'),hint=document.getElementById('bookHint');
+const H={closed:'Pulsa «Abrir la tarjeta» para verla por dentro.',open:'Por dentro: el vale a la izquierda y lo que os espera a la derecha.',flip:'La parte de atrás de la tarjeta.'};
+const bs=[...document.querySelectorAll('.book-btn')];
+bs.forEach(b=>b.addEventListener('click',()=>{st.classList.remove('open','flip');if(b.dataset.v!=='closed')st.classList.add(b.dataset.v);bs.forEach(x=>x.setAttribute('aria-pressed',x===b));hint.textContent=H[b.dataset.v];}));
+const sizeBook=()=>{const w=fit.clientWidth,s=Math.min(1,w/1124);st.style.transform='scale('+s+')';st.style.marginLeft=Math.max(0,(w-1124*s)/2)+'px';fit.style.height=(794*s)+'px';};
+const roBook=new ResizeObserver(sizeBook);roBook.observe(fit);sizeBook();
 }
 </script>
 </body>
