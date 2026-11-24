@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vuestro regalo · Thermas de Griñón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: tierno y elegante, un regalo de cumpleaños
+   IDEA: la tarjeta impresa abierta del todo, como un folleto de balneario
+   PICTURE: el circuito termal a lo grande, luego cada zona con su foto
+   COLOUR and TYPE: crema, azul agua profundo, dorado fino; Cormorant + Jost, igual que la tarjeta
+   LAYOUT: portada, vale, el lugar, galería de zonas, cómo llegar, firma */
+:root{color-scheme:light dark;
+--bg:light-dark(#F7F3EC,#0E1C27);--paper:light-dark(#FFFDF8,#132634);--ink:light-dark(#1E2A32,#EDE7DC);
+--soft:light-dark(#3A4750,#B9C3CA);--deep:light-dark(#0F2A3D,#F2ECE1);--gold:light-dark(#7A5C30,#D9BE8C);
+--line:light-dark(#E3D9C8,#2A3E4D);--rule:#B08D57}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 'Jost',system-ui,sans-serif;overflow-x:clip}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:var(--deep);line-height:1.05;text-wrap:balance;margin:0}
+.band{padding:clamp(40px,6vw,88px) max(5vw,18px)}
+.wrap{max-width:1180px;margin:0 auto}
+.label{font-size:13px;color:var(--gold);margin:0 0 10px}
+.rule{width:56px;height:1px;background:var(--rule);margin:22px 0}
+
+.cover{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px);align-items:center}
+.cover h1{font-size:clamp(44px,6.4vw,76px)}
+.cover .names{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,3.4vw,40px);color:var(--ink);margin:0}
+.cover .lead{color:var(--soft);max-width:34em;margin:18px 0 0}
+.cover figure{margin:0;position:relative}
+.cover figure img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
+.badge{position:absolute;left:-28px;bottom:-28px;width:112px;height:112px;border-radius:50%;background:#0F2A3D;border:2px solid var(--rule);display:grid;place-content:center;text-align:center;color:#F7F3EC}
+.badge b{font:500 46px/1 'Cormorant Garamond',serif}
+.badge span{font-size:11px;color:#E6D3AE;margin-top:4px}
+
+.voucher-band{background:var(--paper);border-block:1px solid var(--line)}
+.voucher{max-width:760px;margin:0 auto;border:1px solid var(--rule);padding:7px}
+.voucher>div{border:1px solid var(--rule);padding:clamp(28px,5vw,56px);text-align:center}
+.voucher h2{font-size:clamp(38px,5.4vw,58px);margin:6px 0 4px}
+.voucher .place{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--soft)}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 32px;text-align:left;margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.fields dt{font-size:13px;color:var(--gold)}
+.fields dd{margin:2px 0 0;font-size:19px}
+.voucher .wish{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--deep);margin:34px 0 0}
+
+.place-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.place-grid h2{font-size:clamp(34px,4.4vw,48px)}
+.place-grid img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:2px}
+.facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:26px}
+.facts b{display:block;font:500 40px/1 'Cormorant Garamond',serif;color:var(--deep)}
+.facts span{font-size:14px;color:var(--soft)}
+
+.zones-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:12px 32px;margin-bottom:32px}
+.zones-head h2{font-size:clamp(34px,4.4vw,48px)}
+.zones-head p{color:var(--soft);max-width:30em;margin:0}
+.zones{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:30px 22px}
+.zone{margin:0}
+.zone img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:2px;transition:transform .5s ease}
+.zone .ph{overflow:hidden;border-radius:2px}
+.zone:hover img{transform:scale(1.04)}
+.zone h3{font-size:25px;margin:14px 0 4px}
+.zone p{margin:0;font-size:15px;line-height:1.55;color:var(--soft)}
+.zone.big{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:28px;align-items:center}
+.zone.big img{aspect-ratio:16/9}
+.zone.big h3{font-size:clamp(30px,3.6vw,40px)}
+.zone.big p{font-size:17px}
+.note{font-size:14px;color:var(--soft);margin-top:30px}
+
+.where{background:#0F2A3D;color:#EDE7DC}
+.where h2{color:#F7F3EC;font-size:clamp(34px,4.4vw,48px)}
+.where .label{color:#D9BE8C}
+.where-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:30px;max-width:640px}
+.where dt{font-size:13px;color:#D9BE8C}
+.where dd{margin:4px 0 0;font-size:18px}
+.where a{color:#F7F3EC;text-underline-offset:3px}
+.where a:hover{color:#E6D3AE}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border:1px solid #B08D57;border-radius:2px;color:#F7F3EC;text-decoration:none}
+.btn:hover,.btn:focus-visible{background:#B08D57;color:#0F2A3D;outline:none}
+
+.sign{text-align:center}
+.sign p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,3.4vw,36px);color:var(--deep);margin:0}
+.sign small{display:block;margin-top:10px;color:var(--soft);font-size:14px}
+
+@media(max-width:760px){
+.cover,.place-grid,.zone.big{grid-template-columns:minmax(0,1fr)}
+.cover figure{order:-1}
+.badge{left:auto;right:14px;bottom:-30px;width:92px;height:92px}.badge b{font-size:38px}
+.where-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:460px){.fields{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.zone img{transition:none}.zone:hover img{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="band">
+<div class="wrap cover">
+<div>
+<p class="label">Vale regalo online</p>
+<h1>Un día en Thermas de Griñón</h1>
+<div class="rule"></div>
+<p class="names">Para Roberta &amp; Anastasia</p>
+</div>
+<figure>
+<img src="hero.jpg" alt="El circuito termal de Thermas de Griñón, con palmeras y la piscina central">
+<div class="badge" aria-hidden="true"><b>18</b><span>cumpleaños</span></div>
+</figure>
+</div>
+</header>
+
+<section class="band voucher-band" aria-labelledby="vale">
+<div class="voucher"><div>
+<p class="label" style="margin:0">Vale regalo online</p>
+<span class="place">Thermas de Griñón</span>
+<h2 id="vale">Circuito termal de 3 horas</h2>
+<dl class="fields">
+<div><dt>Para</dt><dd>Roberta y Anastasia</dd></div>
+<div><dt>De parte de</dt><dd>Alfonso</dd></div>
+<div><dt>Fecha</dt><dd>A definir...</dd></div>
+<div><dt>Reservas</dt><dd>Hablar con Alfonso</dd></div>
+</dl>
+<p class="wish">Feliz 18 cumpleaños</p>
+</div></div>
+</section>
+
+<section class="band" aria-labelledby="lugar">
+<div class="wrap place-grid">
+<div>
+<p class="label">El lugar</p>
+<h2 id="lugar">Uno de los balnearios más grandes de España</h2>
+<p style="color:var(--soft);margin:18px 0 0">Está en Griñón, al sur de Madrid. Por dentro es un circuito termal enorme, con espacios ozonizados que se recorren a vuestro ritmo: piscinas con chorros, jacuzzis, saunas, baño turco, un flotarium y cuatro piscinas temáticas inspiradas en los mares.</p>
+<div class="facts">
+<div><b>3.200 m²</b><span>de espacios ozonizados</span></div>
+<div><b>15</b><span>zonas en el circuito</span></div>
+<div><b>3 h</b><span>para disfrutarlo</span></div>
+</div>
+</div>
+<img src="exterior.jpg" alt="Fachada del Balneario Thermas de Griñón">
+</div>
+</section>
+
+<section class="band" style="padding-top:0" aria-labelledby="zonas">
+<div class="wrap">
+<div class="zones-head">
+<div><p class="label">El circuito termal</p><h2 id="zonas">Lo que os espera</h2></div>
+<p>Quince zonas para ir de una a otra sin prisa. Estas son todas, con lo que tiene cada una.</p>
+</div>
+<div class="zones" id="zones"></div>
+<p class="note">La sauna no está recomendada para personas con hipertensión, problemas circulatorios o cardiacos, ni para embarazadas.</p>
+</div>
+</section>
+
+<section class="band where" aria-labelledby="donde">
+<div class="wrap">
+<p class="label">Cómo llegar</p>
+<h2 id="donde">Dónde está</h2>
+<dl class="where-grid">
+<div><dt>Dirección</dt><dd>Ctra. de Torrejón de la Calzada a Griñón, km 3,2 · 28971 Griñón (Madrid)</dd></div>
+</dl>
+<div class="btns">
+<a class="btn" href="https://www.google.com/maps/search/?api=1&query=Thermas+de+Gri%C3%B1%C3%B3n">Abrir en Google Maps</a>
+<a class="btn" href="https://maps.apple/p/8qMN31S_NC7TWG">Abrir en Apple Maps</a>
+<a class="btn" href="https://www.thermasdegrinon.com/">Abrir página web oficial</a>
+</div>
+</div>
+</section>
+
+<footer class="band sign">
+<p>Con todo mi cariño, Alfonso</p>
+<small>Fotos: Thermas de Griñón</small>
+</footer>
+
+<script>
+{
+const big={img:'piscina',t:'Gran piscina central',d:'La protagonista del balneario: enorme y llena de chorros. Es el corazón de todo el circuito termal.'};
+const zones=[
+['lago','Lago de cristal','Piscina de agua cristalina con muchísimos chorros y tres contracorrientes pensadas para el abdomen.'],
+['flotarium','Flotarium','Flotas sin hacer ningún esfuerzo, como en el Mar Muerto. Como si no existiera la gravedad.'],
+['jacuzzi','Jacuzzis Trébol','Dos jacuzzis para relajarse y dos «volcanes» de burbujas para reactivarse.'],
+['hielo','Cascada de hielo','Escarcha de hielo y una piscina de agua muy fría para tonificar y activar la circulación.'],
+['romanas','Thermas Romanas','Un conjunto de cuatro piscinas temáticas: Mediterráneo, Muerto, Cantábrico e Índico.'],
+['mediterraneo','Mar Mediterráneo','Chorros para espalda y lumbares a 36 °C, y después un chapuzón a 14 °C en el Índico.'],
+['muerto','Mar Muerto','Para relajarse de verdad: el agua más caliente, a 38 °C.'],
+['cantabrico','Mar Cantábrico','Baño oxigenante lleno de burbujas a 34 °C, y luego al Índico a 14 °C.'],
+['indico','Mar Índico','La piscina fría a 14 °C: se entra cada vez que salís de uno de los mares.'],
+['sauna','Sauna finlandesa','Sauna seca que llega a unos 90 °C. Hace sudar, abre los poros y ayuda a eliminar toxinas.'],
+['turco','Baño turco','Vapor caliente a unos 45 °C con un 98 % de humedad. Relaja y despeja las vías respiratorias.'],
+['zen','Jacuzzis Zen','Un espacio pensado solo para relajarse, con burbujas oxigenantes y chorros que quitan contracturas.'],
+['duchas','Circuito de duchas','Ducha de esencias, escocesa, de cuatro estaciones, de lluvia y pulverizada.'],
+['pediluvio','Pediluvio','Un paseo por un manto de piedras que trabajan las zonas reflejas del pie.']
+];
+const card=(img,t,d,cls)=>`<figure class="zone${cls||''}"><div class="ph"><img src="${img}.jpg" alt="${t}" loading="lazy"></div><figcaption><h3>${t}</h3><p>${d}</p></figcaption></figure>`;
+document.getElementById('zones').innerHTML=card(big.img,big.t,big.d,' big')+zones.map(z=>card(z[0],z[1],z[2])).join('');
+}
+</script>
+</body>
+</html>
