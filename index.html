@@ -73,7 +73,10 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:va
 .where{background:#0F2A3D;color:#EDE7DC}
 .where h2{color:#F7F3EC;font-size:clamp(34px,4.4vw,48px)}
 .where .label{color:#D9BE8C}
-.where-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin-top:30px;max-width:640px}
+.where-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;margin:0;max-width:560px}
+.where{padding-block:clamp(36px,4.5vw,60px)}
+.where-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px 48px}
+.where-row .btns{margin-top:0}
 .where dt{font-size:13px;color:#D9BE8C}
 .where dd{margin:4px 0 0;font-size:18px}
 .where a{color:#F7F3EC;text-underline-offset:3px}
@@ -483,12 +486,11 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:va
 <p>Quince zonas para ir de una a otra sin prisa. Estas son todas, con lo que tiene cada una.</p>
 </div>
 <div class="zones" id="zones"></div>
-<p class="note">La sauna no está recomendada para personas con hipertensión, problemas circulatorios o cardiacos, ni para embarazadas.</p>
 </div>
 </section>
 
-<section class="band where" aria-labelledby="donde">
-<div class="wrap">
+<section class="band where" aria-label="Cómo llegar">
+<div class="wrap where-row">
 <dl class="where-grid">
 <div><dt>Dirección</dt><dd>Ctra. de Torrejón de la Calzada a Griñón, km 3,2 · 28971 Griñón (Madrid)</dd></div>
 </dl>
