@@ -154,7 +154,6 @@ h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;color:va
 
 <section class="band book-band" aria-label="La tarjeta">
 <div class="wrap">
-<p id="bookHint" class="book-hint">Pulsa «Abrir la tarjeta» para verla por dentro.</p>
 <div class="book-fit" id="bookFit"><div class="book-stage" id="bookStage"><div class="book-card">
 <div class="book-part"><div class="book-clip"><div class="book-sheet" style="left:-561px"><div style="width: 1123px; height: 794px; position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); background: #FFFFFF; font-family: 'Jost', system-ui, sans-serif; color: #1E2A32; overflow: hidden">
 
@@ -532,10 +531,10 @@ document.getElementById('zones').innerHTML=card(big.img,big.t,big.d,' big')+zone
 </script>
 <script>
 {
-const st=document.getElementById('bookStage'),fit=document.getElementById('bookFit'),hint=document.getElementById('bookHint');
+const st=document.getElementById('bookStage'),fit=document.getElementById('bookFit');
 const H={closed:'Pulsa «Abrir la tarjeta» para verla por dentro.',open:'Por dentro: el vale a la izquierda y lo que os espera a la derecha.',flip:'La parte de atrás de la tarjeta.'};
 const bs=[...document.querySelectorAll('.book-btn')];
-bs.forEach(b=>b.addEventListener('click',()=>{st.classList.remove('open','flip');if(b.dataset.v!=='closed')st.classList.add(b.dataset.v);bs.forEach(x=>x.setAttribute('aria-pressed',x===b));hint.textContent=H[b.dataset.v];}));
+bs.forEach(b=>b.addEventListener('click',()=>{st.classList.remove('open','flip');if(b.dataset.v!=='closed')st.classList.add(b.dataset.v);bs.forEach(x=>x.setAttribute('aria-pressed',x===b));}));
 const sizeBook=()=>{const w=fit.clientWidth,s=Math.min(1,w/1124);st.style.transform='scale('+s+')';st.style.marginLeft=Math.max(0,(w-1124*s)/2)+'px';fit.style.height=(794*s)+'px';};
 const roBook=new ResizeObserver(sizeBook);roBook.observe(fit);sizeBook();
 }
